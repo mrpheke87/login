@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+     <script>
+     function LoginUser()
+    {
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    google.script.run.withSuccessHandler(function(output) 
+    {
+      if(output == 'TRUE')
+      {
+         var url1 ='https://youtu.be/AOR7pNofRx0';
+         var winRef = window.open(url1);
+         winRef ? google.script.host.close() : window.onload=function(){document.getElementById('url').href = url1;}    
+      }
+      else if(output == 'FALSE')
+      {
+        document.getElementById("errorMessage").innerHTML = "Data Tidak Valid!";     
+      }    
+    }).checkLogin(username, password);
+    }
+    
+function function1(){
+    document.getElementById("page1_id1").className = "page1_class1-off";
+}
+
+  </script>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            font-family: "Open Sans";
+            color: #fff;
+        }
+        section{
+            background: url("https://drive.google.com/uc?id=17ddqpUtCZetjt5jM2kbGmXouOq1n9Hal");
+            height: 100vh;
+            width: 100%;
+            background-size: cover;
+            background-position: center center;
+        }
+        .form-container{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 380px;
+            padding: 50px 30px;
+            border-radius: 10px;
+            box-shadow:7px 7px 60px #000;
+        }
+        h1{
+            color: #ffffff;
+            font-size: 2em;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .control input{
+            font-size: 16px;
+            display: block;
+            width: 100%;
+            color:#000;
+            background: #ddd;
+            outline: none;
+            border: none;
+            margin: 1em 0;
+            border-radius: 30px;
+            padding: 15px;
+
+        }         
+        .control .btn{
+            color: #fff;
+            text-transform: uppercase;
+            background: crimson;
+            opacity: .7;
+            transition:opacity .3s ease;
+        }
+        .btn:focus{
+            opacity: 1;
+        }
+        p{
+            text-align: center;
+        }
+        a{
+            text-decoration: none;
+            color: #fff;
+            opacity: .7;
+        }
+        a:hover{
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="form-container">
+            <div class="page1_class1" id="page1_id1">
+            <h1>Login</h1>
+
+            <div class="control">
+            <label for="username">Username</label>
+            <input type="text" id="username" >
+            </div>
+            <div class="control">
+            <label for="psw">Password</label>
+            <input type="password" id="password" >
+            </div>
+            <span><input type="checkbox"> Remember me</span>
+            <div class="control">
+            <input type="submit" class="btn" value="Login"onclick="LoginUser()">
+            <span id="errorMessage" style="color: red" ></span>
+            </div>
+
+        <p>If you don't have an account<br><a href="#">Register here!</a></p>
+        </div>
+    </section>
+</body>
+</html>
